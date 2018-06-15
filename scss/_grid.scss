@@ -1,0 +1,29 @@
+
+.grid-margin {
+	margin: 0 auto;
+}
+
+.grid-nomargin {
+	width: 100vw;
+}
+
+.row {
+	width: 100%;
+	height: auto;
+	display: grid;
+	grid-template-columns: repeat($columns, 100%/$columns);
+	grid-template-rows: repeat($rows, 100%);
+}
+
+// IF ENABLE-GRID IS TRUE, THEN THE GRID IS TURNED ON
+@if enable-grid {
+	@each $breakpoint in $breakpoints {
+		@include breakpoint($breakpoint) {
+			@for $i from 1 through $columns {
+				.column-#{$breakpoint}-#{$i} {
+					grid-column: span $i;
+				}
+			}
+		}
+	}
+}

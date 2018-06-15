@@ -1,0 +1,25 @@
+
+
+
+@mixin breakpoint($point) {
+	// EXTRA SMALL DEVICES
+	@if $point == xs {
+		@media all and (max-width: 480px) { @content; .grid-margin {width: 100%;} }
+	}
+	// SMALL DEVICES
+	@if $point == sm {
+		@media all and (min-width: 481px) and (max-width: 736px) { @content; .grid-margin {width: 468px;} }
+	}
+	// MEDIUM DEVICES
+	@if $point == md {
+		@media all and (min-width: 737px) and (max-width: 980px) { @content; .grid-margin {width: 720px;} }
+	}
+	// LARGE DEVICES
+	@if $point == lg {
+		@media all and (min-width: 981px) and (max-width: 1280px) { @content; .grid-margin {width: 950px;} } 
+	}
+	// EXTRA LARGE DEVICES
+	@if $point == xl {
+		@media all and (min-width: 1281px) { @content; .grid-margin {width: 1250px;}}
+	}
+}
